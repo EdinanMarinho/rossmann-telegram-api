@@ -62,7 +62,7 @@ def load_dataset(store_id):
 
 def predict( data ):
     # API Call
-    url = 'https://telegram-bot-rossmann-b1ht.onrender.com/rossmann/predict' 
+    url = 'https://rossmann-telegram-api-jhca.onrender.com/rossmann/predict' 
     header = {'Content-type': 'application/json'}
     data = data
     
@@ -118,7 +118,7 @@ def index():
                 return Response( 'OK', status=200 )  
             
             else:
-                send_message( chat_id, f'Não existe esse {} código de loja'.format(d2['store'].values[0]) )
+                send_message( chat_id, 'Não existe esse {} código de loja'.format(d2['store'].values[0]) )
                 return Response( 'OK', status=200)
 
         else:
