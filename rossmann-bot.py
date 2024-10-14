@@ -35,9 +35,8 @@ def send_message( chat_id, text ):
     return None
       
 def load_dataset( store_id ):
-    # loading test dataset
-    #df10 = pd.read_csv( 'C:\\Users\\Antonio Richard\\OneDrive - acad.ifma.edu.br\\Documentos\\A Sala de aprendizado\\DS Library Books\\Meiga Material\\DS_Producao\\DS\\dataset\\test.csv' )
-    #df_store_raw = pd.read_csv( 'C:\\Users\\Antonio Richard\\OneDrive - acad.ifma.edu.br\\Documentos\\A Sala de aprendizado\\DS Library Books\\Meiga Material\\DS_Producao\\DS\\dataset\\store.csv' )
+    # loading  dataset
+    
 
     df10 = pd.read_csv( 'test.csv' )
     df_store_raw = pd.read_csv( 'store.csv' )
