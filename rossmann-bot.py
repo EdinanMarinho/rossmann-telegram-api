@@ -29,19 +29,17 @@ def send_message( chat_id, text ):
     url = url + 'sendMessage?chat_id={}'.format( chat_id )
     
     # API request using POST method 
-    r = requests.post( url, json = {'text': text} )
+    r = requests.post( url, json={'text': text} )
     print( 'Status Code {}'.format( r.status_code ) )
     
     return None
       
 def load_dataset( store_id ):
     # loading  dataset
-    
-
     df10 = pd.read_csv( 'test.csv' )
     df_store_raw = pd.read_csv( 'store.csv' )
 
-    # merge test dataset + store (para ter as mesmas features usadas para fazer as predicoes)
+    # merge test dataset + store (com as mesmas features usadas para fazer as predicoes)
     df_test = pd.merge( df10, df_store_raw, how = 'left', on = 'Store' )
 
     # escolha uma loja 
@@ -68,7 +66,6 @@ def predict( data ):
     url ='https://rossmann-telegram-api-jhca.onrender.com/rossmann/predict'
     # indica para a API o tipo de requisicao que estamos fazendo
     header = {'Content-type' : 'application/json'}
-    # dado enviado
     data = data
 
     # requisicao
@@ -76,7 +73,7 @@ def predict( data ):
     print( 'Status Code {}'.format( r.status_code ) )
 
     # cria um objeto DataFrame a partir da lista de dicionarios
-    d1 = pd.DataFrame( r.json(), columns = r.json()[0].keys() )
+    d1 = pd.DataFrame( r.json(), columns=r.json()[0].keys() )
     
     return d1
 
@@ -115,10 +112,9 @@ def index():
                 # DataFrame que contem a soma das previsoes de vendas por loja
                 d2 = d1[['store','prediction']].groupby(['store']).sum().reset_index()
                 
-                msg = 'Store number {} will sell R${:,.2f} in the next six weeks'.format(
-                                                                                         d2['store'].values[0],
-                                                                                         d2['prediction'].values[0]
-                                                                                        )
+                msg = 'Loja número {} venderá ${:,.2f} nas próximas 6 semanas'.format(
+                        d2['store'].values[0], d2['prediction'].values[0] )
+               
                 send_message( chat_id, msg )
                 return Response( 'Ok', status = 200 )
             
