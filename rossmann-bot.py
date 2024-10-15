@@ -30,7 +30,7 @@ def send_message( chat_id, text ):
     
     # API request using POST method 
     r = requests.post( url, json={'text': text} )
-    print( 'Status Code API request POST method {}'.format( r.status_code ) )
+    print( 'Status Code  {}'.format( r.status_code ) )
     
     return None
       
@@ -63,14 +63,14 @@ def load_dataset( store_id ):
 
 def predict( data ):
     # Chamada para a API
-    url ='https://rossmann-telegram-api-bot-edinan-marinho.onrender.com/rossmann/predict'
+    url = 'https://rossmann-telegram-api-bot-edinan-marinho.onrender.com/rossmann/predict'
     # indica para a API o tipo de requisicao que estamos fazendo
-    header = {'Content-type':'application/json','Accept': 'application/json'}
+    header = {'Content-type': 'application/json' }
     data = data
 
     # requisicao
     r = requests.post( url, data=data, headers=header )
-    print( 'Status Code #requisicao predict {}'.format( r.status_code ) )
+    print( 'Status Code {}'.format( r.status_code ) )
     
     # cria um objeto DataFrame a partir da lista de dicionarios
     d1 = pd.DataFrame( r.json(), columns=r.json()[0].keys() )
