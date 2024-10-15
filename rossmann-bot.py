@@ -76,7 +76,7 @@ def predict( data ):
     d1 = pd.DataFrame( r.json(), columns=r.json()[0].keys() )
     
 
-return d1
+    return d1
 
 def parse_message( message ):
     chat_id = message['message']['chat']['id']
