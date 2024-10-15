@@ -132,5 +132,5 @@ def index():
     
 if __name__ == '__main__':
     # o servidor Flask eh iniciado para escutar a API
-    port = os.environ.get( 'PORT', 5000 )
+    port = os.environ.get( 'PORT', 10000 )
     app.run( host='0.0.0.0', port=port, debug = True )
