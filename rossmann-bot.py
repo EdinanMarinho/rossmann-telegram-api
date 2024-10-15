@@ -30,7 +30,7 @@ def send_message( chat_id, text ):
     
     # API request using POST method 
     r = requests.post( url, json={'text': text} )
-    print( 'Status Code {}'.format( r.status_code ) )
+    print( 'Status Code API request POST method {}'.format( r.status_code ) )
     
     return None
       
@@ -40,14 +40,14 @@ def load_dataset( store_id ):
     df_store_raw = pd.read_csv( 'datasets/store.csv' )
 
     # merge test dataset + store (com as mesmas features usadas para fazer as predicoes)
-    df_test = pd.merge( df10, df_store_raw, how = 'left', on = 'Store' )
+    df_test = pd.merge( df10, df_store_raw, how='left', on='Store' )
 
     # escolha uma loja 
     df_test = df_test[df_test['Store'] == store_id ]
     
     if not df_test.empty:
         # somente as lojas que estao abertas
-        df_test = df_test[df_test['Open'] == 1]
+        df_test = df_test[df_test['Open'] != 0]
         # lojas sem dados faltantes na coluna 'Open'
         df_test = df_test[ ~df_test['Open'].isnull() ]
         # retira a coluna 'Id' 
@@ -65,12 +65,12 @@ def predict( data ):
     # Chamada para a API
     url ='https://rossmann-telegram-api-bot-edinan-marinho.onrender.com/rossmann/predict'
     # indica para a API o tipo de requisicao que estamos fazendo
-    header = {'Content-type' : 'application/json'}
+    header = {'Content-type':'application/json'}
     data = data
 
     # requisicao
-    r = requests.post( url, data = data, headers = header )
-    print( 'Status Code {}'.format( r.status_code ) )
+    r = requests.post( url, data=data, headers=header )
+    print( 'Status Code #requisicao predict {}'.format( r.status_code ) )
 
     # cria um objeto DataFrame a partir da lista de dicionarios
     d1 = pd.DataFrame( r.json(), columns=r.json()[0].keys() )
