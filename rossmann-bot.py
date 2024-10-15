@@ -110,7 +110,7 @@ def index():
 
                 # Calculation
                 # DataFrame que contem a soma das previsoes de vendas por loja
-                d2 = d1[['store','prediction']].groupby(['store']).sum().reset_index()
+                d2 = d1[['store','prediction']].groupby('store').sum().reset_index()
                 
                 msg = 'Loja número {} venderá ${:,.2f} nas próximas 6 semanas'.format(
                         d2['store'].values[0], d2['prediction'].values[0] )
