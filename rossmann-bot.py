@@ -19,7 +19,7 @@ TOKEN = os.environ.get('TOKEN')
 #https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://3098219175b4bb.lhr.life
 
 # Webhook Render
-#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://rossmann-telegram-api-jhca.onrender.com
+#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://rossmann-telegram-api-bot-edinan-marinho.onrender.com
 
 #Message
 #https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/sendMessage?chat_id=895518040&text=Olá Edinan, eu estou bem, obrigado!
@@ -65,7 +65,7 @@ def predict( data ):
     # Chamada para a API
     url ='https://rossmann-telegram-api-bot-edinan-marinho.onrender.com/rossmann/predict'
     # indica para a API o tipo de requisicao que estamos fazendo
-    header = {'Content-type':'application/json'}
+    headers = {'Content-type':'application/json'}
     data = data
 
     # requisicao
