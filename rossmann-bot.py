@@ -119,11 +119,11 @@ def index():
                 return Response( 'Ok', status = 200 )
             
             else: 
-                send_message( chat_id, 'Store Not Available' )
+                send_message( chat_id, 'Loja não disponível' )
                 return Response( 'Ok', status = 200 )
         
         else:
-            send_message( chat_id, 'Store ID Wrong' )
+            send_message( chat_id, 'ID Loja Errado' )
             return Response( 'Ok', status = 200 ) 
         
     else:
