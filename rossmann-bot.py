@@ -65,13 +65,28 @@ def predict( data ):
     # Chamada para a API
     url ='https://rossmann-telegram-api-bot-edinan-marinho.onrender.com/rossmann/predict'
     # indica para a API o tipo de requisicao que estamos fazendo
-    headers = {'Content-type':'application/json'}
+    header = {'Content-type':'application/json'}
     data = data
 
     # requisicao
     r = requests.post( url, data=data, headers=header )
     print( 'Status Code #requisicao predict {}'.format( r.status_code ) )
-
+    
+    # Verificar se a resposta foi bem-sucedida
+    if r.status_code == 200:
+        try:
+            # Tentar converter a resposta JSON para DataFrame
+            response_json = r.json()
+            d1 = pd.DataFrame(response_json, columns=response_json[0].keys())
+            return d1
+        except ValueError as e:
+            print(f"Erro ao decodificar JSON: {e}")
+            print(f"Resposta bruta: {r.text}")
+            return None
+    else:
+        # Exibir a mensagem de erro completa
+        print(f"Erro {r.status_code}: {r.text}")
+        return None
     # cria um objeto DataFrame a partir da lista de dicionarios
     d1 = pd.DataFrame( r.json(), columns=r.json()[0].keys() )
     
