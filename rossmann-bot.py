@@ -63,7 +63,7 @@ def load_dataset( store_id ):
 
 def predict( data ):
     # Chamada para a API
-    url ='https://rossmann-telegram-api-bot-edinan-marinho.onrender.com/rossmann/predict'
+    url ='/https://api-rossmann-edinan-marinho.onrender.com/rossmann/predict'
     # indica para a API o tipo de requisicao que estamos fazendo
     header = {'Content-type' : 'application/json'}
     data = data
