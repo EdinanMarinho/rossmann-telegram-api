@@ -51,10 +51,10 @@ def load_dataset( store_id ):
         # lojas sem dados faltantes na coluna 'Open'
         df_test = df_test[ ~df_test['Open'].isnull() ]
         # retira a coluna 'Id' 
-        df_test = df_test.drop( 'Id', axis = 1 )
+        df_test = df_test.drop( 'Id', axis=1 )
     
         # converte o DataFrame em json para o envio via API
-        data = json.dumps( df_test.to_dict( orient = 'records' ) )
+        data = json.dumps( df_test.to_dict( orient='records' ) )
     
     else:
         data = 'error'
@@ -131,5 +131,5 @@ def index():
     
     
 if __name__ == '__main__':
-    port = os.environ.get( 'PORT', 10000 )
-    app.run( host='127.0.0.1', port=port, debug=True )
+    port = os.environ.get( 'PORT', 5000 )
+    app.run( host='0.0.0.0', port=port, debug=True )
