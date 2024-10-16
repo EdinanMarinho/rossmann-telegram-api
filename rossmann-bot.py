@@ -30,7 +30,7 @@ def send_message( chat_id, text ):
     
     # API request using POST method 
     r = requests.post( url, json={'text': text} )
-    print( 'Status Code  {}'.format( r.status_code ) )
+    print( 'Status Code {}'.format( r.status_code ) )
     
     return None
       
@@ -94,7 +94,7 @@ def parse_message( message ):
 # API initialize
 app = Flask( __name__ )
 
-@app.route( '/', methods = ['GET', 'POST'] )
+@app.route( '/', methods=['GET', 'POST'] )
 def index():
     if request.method == 'POST':
         message = request.get_json()
@@ -116,21 +116,20 @@ def index():
                         d2['store'].values[0], d2['prediction'].values[0] )
                
                 send_message( chat_id, msg )
-                return Response( 'Ok', status = 200 )
+                return Response( 'Ok', status=200 )
             
             else: 
                 send_message( chat_id, 'Loja não disponível' )
-                return Response( 'Ok', status = 200 )
+                return Response( 'Ok', status=200 )
         
         else:
             send_message( chat_id, 'ID Loja Errado' )
-            return Response( 'Ok', status = 200 ) 
+            return Response( 'Ok', status=200 ) 
         
     else:
         return '<h1> Rossmann Telegram BOT </h1>'
     
     
 if __name__ == '__main__':
-    # o servidor Flask eh iniciado para escutar a API
     port = os.environ.get( 'PORT', 5000 )
-    app.run( host='0.0.0.0', port=port, debug = True )
+    app.run( host='0.0.0.0', port=port, debug=True )
