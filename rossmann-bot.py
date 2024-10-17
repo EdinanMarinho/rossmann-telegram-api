@@ -35,9 +35,14 @@ def send_message( chat_id, text ):
     return None
       
 def load_dataset( store_id ):
+
     # loading  dataset
-    df10 = pd.read_csv( 'datasets/test.csv' )
-    df_store_raw = pd.read_csv( 'datasets/store.csv' )
+    df10 = pd.read_csv( '/home/dimarinho/repos/Data_Science_em_Producao/datasets/test.csv' )
+    df_store_raw = pd.read_csv( '/home/dimarinho/repos/Data_Science_em_Producao/datasets/store.csv' )
+
+    # # loading  dataset
+    # df10 = pd.read_csv( 'datasets/test.csv' )
+    # df_store_raw = pd.read_csv( 'datasets/store.csv' )
 
     # merge test dataset + store (com as mesmas features usadas para fazer as predicoes)
     df_test = pd.merge( df10, df_store_raw, how='left', on='Store' )
