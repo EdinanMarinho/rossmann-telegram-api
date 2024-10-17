@@ -78,7 +78,7 @@ def predict( data ):
     print( 'Status Code {}'.format( r.status_code ) )
     
     # cria um objeto DataFrame a partir da lista de dicionarios
-    d1 = pd.DataFrame( r.json(), columns=r.json()[0].keys() )
+    d1 = pd.DataFrame( r.json(encoding='utf-8'), columns=r.json()[0].keys() )
     
     return d1
 
