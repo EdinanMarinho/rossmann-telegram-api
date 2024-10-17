@@ -16,7 +16,7 @@ TOKEN = os.environ.get('TOKEN')
 #https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/getUpdates
 
 # Webhook localhost                                                                                                                       
-#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url= https://225b55ff100e48.lhr.life
+#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://21dbdad3aaa68a.lhr.life
 
 # Webhook Render
 #https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://rossmann-telegram-api-bot-edinan-marinho.onrender.com
@@ -40,7 +40,7 @@ def load_dataset( store_id ):
     df10 = pd.read_csv( '/home/dimarinho/repos/Data_Science_em_Producao/datasets/test.csv' )
     df_store_raw = pd.read_csv( '/home/dimarinho/repos/Data_Science_em_Producao/datasets/store.csv' )
 
-    # # loading  dataset
+    # # # loading  dataset
     # df10 = pd.read_csv( 'datasets/test.csv' )
     # df_store_raw = pd.read_csv( 'datasets/store.csv' )
 
@@ -136,5 +136,5 @@ def index():
     
     
 if __name__ == '__main__':
-    port = os.environ.get( 'PORT', 5000 )
-    app.run( host='0.0.0.0', port=port, debug=True )
+    # port = os.environ.get( 'PORT', 5000 )
+    app.run( host='0.0.0.0', port=5000, debug=True )
