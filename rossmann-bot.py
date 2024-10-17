@@ -19,7 +19,7 @@ TOKEN = os.environ.get('TOKEN')
 #https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://21dbdad3aaa68a.lhr.life
 
 # Webhook Render
-#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://rossmann-telegram-api-bot-edinan-marinho.onrender.com
+#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://rossmann-telegram-edinan-marinho.onrender.com
 
 #Message
 #https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/sendMessage?chat_id=895518040&text=Olá Edinan, eu estou bem, obrigado!
@@ -137,4 +137,4 @@ def index():
     
 if __name__ == '__main__':
     port = os.environ.get( 'PORT', 5000 )
-    app.run( host='0.0.0.0', port=port, debug=True )
+    app.run( host='127.0.0.1', port=port, debug=True )
