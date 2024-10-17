@@ -37,12 +37,12 @@ def send_message( chat_id, text ):
 def load_dataset( store_id ):
 
     # loading  dataset
-    df10 = pd.read_csv( '/home/dimarinho/repos/Data_Science_em_Producao/datasets/test.csv' )
-    df_store_raw = pd.read_csv( '/home/dimarinho/repos/Data_Science_em_Producao/datasets/store.csv' )
+    # df10 = pd.read_csv( '/home/dimarinho/repos/Data_Science_em_Producao/datasets/test.csv' )
+    # df_store_raw = pd.read_csv( '/home/dimarinho/repos/Data_Science_em_Producao/datasets/store.csv' )
 
     # # # loading  dataset
-    # df10 = pd.read_csv( 'datasets/test.csv' )
-    # df_store_raw = pd.read_csv( 'datasets/store.csv' )
+    df10 = pd.read_csv( 'datasets/test.csv' )
+    df_store_raw = pd.read_csv( 'datasets/store.csv' )
 
     # merge test dataset + store (com as mesmas features usadas para fazer as predicoes)
     df_test = pd.merge( df10, df_store_raw, how='left', on='Store' )
@@ -136,5 +136,5 @@ def index():
     
     
 if __name__ == '__main__':
-    # port = os.environ.get( 'PORT', 5000 )
-    app.run( host='0.0.0.0', port=5000, debug=True )
+    port = os.environ.get( 'PORT', 5000 )
+    app.run( host='0.0.0.0', port=port, debug=True )
