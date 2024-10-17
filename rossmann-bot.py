@@ -7,7 +7,7 @@ from flask import Flask, request, Response
 
 
 # Token do Bot no Telegram
-TOKEN = os.environ.get('TOKEN')
+TOKEN = '7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM'
 
 ## Info sobre o Bot
 #https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/getMe
@@ -78,7 +78,7 @@ def predict( data ):
     print( 'Status Code {}'.format( r.status_code ) )
     
     # cria um objeto DataFrame a partir da lista de dicionarios
-    d1 = pd.DataFrame( r.json(encoding='utf-8'), columns=r.json()[0].keys() )
+    d1 = pd.DataFrame( r.json(), columns=r.json()[0].keys() )
     
     return d1
 
