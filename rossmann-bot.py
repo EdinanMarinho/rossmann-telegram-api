@@ -7,7 +7,7 @@ from flask import Flask, request, Response
 
 
 # Token do Bot no Telegram
-TOKEN = '7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM'
+TOKEN = os.environ.get('TOKEN')
 
 ## Info sobre o Bot
 #https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/getMe
