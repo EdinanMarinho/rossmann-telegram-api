@@ -10,19 +10,19 @@ from flask import Flask, request, Response
 TOKEN = os.environ.get('TOKEN')
 
 ## Info sobre o Bot
-#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/getMe
+#https://api.telegram.org/(TOKEN TELEGRAM))/getMe
 
 ## get update
-#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/getUpdates
+#https://api.telegram.org/bot(TOKEN TELEGRAM)/getUpdates
 
 # Webhook localhost                                                                                                                       
-#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://21dbdad3aaa68a.lhr.life
+#https://api.telegram.org/bot(TOKEN TELEGRAM)/setWebhook?url=LOCALHOST
 
 # Webhook Render
-#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/setWebhook?url=https://rossmann-telegram-edinan-marinho.onrender.com
+#https://api.telegram.org/bot(TOKEN TELEGRAM)/setWebhook?url=DEPLOY
 
 #Message
-#https://api.telegram.org/bot7694499169:AAHUk3YGF-pOq6TephY18BLysH-SZv-PMaM/sendMessage?chat_id=895518040&text=Olá Edinan, eu estou bem, obrigado!
+#https://api.telegram.org/(TOKEN TELEGRAM)/sendMessage?chat_id=895518040&text=Olá Edinan, eu estou bem, obrigado!
 
 def send_message( chat_id, text ):
     url = f'https://api.telegram.org/bot{TOKEN}/'
