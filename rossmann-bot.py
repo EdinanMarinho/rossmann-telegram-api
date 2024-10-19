@@ -65,7 +65,7 @@ def predict( data ):
     header = {'Content-type': 'application/json' }
     data = data
 
-    r = requests.post( url, data=data, headers=header, timeout=240 )
+    r = requests.post( url, data=data, headers=header, timeout=30 )
     print( 'Status Code {}'.format( r.status_code ) )
 
     d1 = pd.DataFrame( r.json(), columns=r.json()[0].keys() )
